@@ -3,8 +3,13 @@ package com.example.prueba_nacional_bayronsoto.Vista;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.example.prueba_nacional_bayronsoto.Modelo.Usuario;
@@ -22,20 +27,52 @@ import java.util.List;
 public class Modificar extends AppCompatActivity {
     private List<Usuario> listUsuario = new ArrayList<>();
     private ArrayAdapter<Usuario> arrayAdapterUsuario;
-    private ListView listV_usuario;
+    private ListView listModificar;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
+
+    EditText modificarNombre, modificarEdad, modificarCorreo, modificarContraseña2;
+    Button modificar;
+
+    Usuario usuarioSelect;
+
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista);
 
-        inicializarFirebase();
-        listV_usuario = findViewById(R.id.Lista_user);
-        arrayAdapterUsuario = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listUsuario);
-        listV_usuario.setAdapter(arrayAdapterUsuario);
 
+        modificarNombre = findViewById(R.id.txtnombre4);
+        modificarEdad = findViewById(R.id.txtedad4);
+        modificarCorreo = findViewById(R.id.txtcorreo4);
+        modificarContraseña2 = findViewById(R.id.txtcontraseña4);
+
+        listModificar = findViewById(R.id.Lista_user);
+
+        arrayAdapterUsuario = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listUsuario);
+
+        listModificar.setAdapter(arrayAdapterUsuario);
+
+        listModificar.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                usuarioSelect = (Usuario) parent.getItemAtPosition(position);
+
+                modificarNombre.setText(usuarioSelect.getNombre());
+                modificarEdad.setText(usuarioSelect.getEdad());
+                modificarCorreo.setText(usuarioSelect.getCorreo());
+                modificarContraseña2.setText(usuarioSelect.getContraseña());
+
+            }
+        });
+
+        inicializarFirebase();
         listarDatos();
     }
 

@@ -31,7 +31,7 @@
             android:textSize="24sp" />
 
         <EditText
-            android:id="@+id/editTextText"
+            android:id="@+id/txtnombre4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -39,7 +39,7 @@
             android:hint="Nombre" />
 
         <EditText
-            android:id="@+id/editTextText2"
+            android:id="@+id/txtedad4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -47,7 +47,7 @@
             android:hint="Edad" />
 
         <EditText
-            android:id="@+id/editTextText3"
+            android:id="@+id/txtcorreo4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -55,7 +55,7 @@
             android:hint="Correo" />
 
         <EditText
-            android:id="@+id/editTextText4"
+            android:id="@+id/txtcontraseña4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -63,10 +63,10 @@
             android:hint="Contraseña" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnModificar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:text="Modificar" />
 
     </LinearLayout>
 

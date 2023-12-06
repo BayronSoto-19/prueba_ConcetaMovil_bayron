@@ -44,7 +44,8 @@ public class Modificar extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lista);
+        setContentView(R.layout.activity_modificar);
+
 
 
         modificarNombre = findViewById(R.id.txtnombre4);
@@ -52,7 +53,7 @@ public class Modificar extends AppCompatActivity {
         modificarCorreo = findViewById(R.id.txtcorreo4);
         modificarContraseña2 = findViewById(R.id.txtcontraseña4);
 
-        listModificar = findViewById(R.id.Lista_user);
+        listModificar = findViewById(R.id.lista_users_3);
 
         arrayAdapterUsuario = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listUsuario);
 
